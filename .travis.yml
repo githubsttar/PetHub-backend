@@ -1,5 +1,5 @@
 services:
-  - postgresql
+- postgresql
 before_script:
 - cp config/database.yml.travis config/database.yml
 language: ruby
@@ -7,3 +7,13 @@ cache: bundler
 script:
 - bundle exec rails db:create db:migrate RAILS_ENV=test
 - bundle exec rspec
+deploy:
+  provider: heroku
+  api_key:
+    secure: FgRGfMMrx8RREUtihcBpnjSJvE27wB33TPqfyj78+6eD2l4GHgBN1fSGQZfV5nq4vS0am0oDAt6igTavwZjMOeltTHkuczQUFisnC3m5RtmsgxMZZkOsAdwk5xderM8BfYpFUAT7+iSJUhdXEJO2UYBm2nHaeY1SnMnG9xOuPoQC1m4Rx5kzSHXofVB+OZ/z9qJPCy6lUMiTijK44h42z9NI9zN0LXcb1xpb6fiei4IdQc1HoWQFez0MhaqOCP8b6JrRf+rQi85VFuzogkDYOEmlA3RUrHcbNs3lUfJxHvhmTaJOzEhXqYOS/S0dPpXme6zf+dvXYpzuqjtzCTP3sDkuC/Xb3hryGsxzlDgbiMMFhvuin79oUElA/mrggb4vpl9moxM+lmLrEdr8cAimfi36ORDo2UqqDuRfUaJ8sYfsqCfTK3ee7Xh1Aa+PNZ64s3DnXUu/wEGRqtXKaCzbfKEWhIT8T9MrFdEX36R3XAjEjsjyJwMmJMzm4T4Akf0rmQLxDTJ1izeo4u7k1K3tF9MtJ3DFmgYLSeFXjjaYOi3edJGtiKapHYJS4FgkLgdTl+kQWOLGE5qObBeo/u2+fuhMS3UH9X9xg6cFpixYfR0telHGGDl/wMJu7LC3l5JMFVqjHe/Ngj+skMwJguFATn93Z5kaQFgixqvgeR4LBgs=
+  app: pet-hub
+  run: rake db:migrate
+  on:
+    repo: githubsttar/PetHub-backend
+    branch: master
+  skip_cleanup: true

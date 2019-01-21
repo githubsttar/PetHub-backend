@@ -1,24 +1,23 @@
-# README
+# PetHub 🐾 [![Build Status](https://travis-ci.com/githubsttar/PetHub-backend.svg?branch=master)](https://travis-ci.com/githubsttar/PetHub-backend)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+🐕🐩🐈🐴http://pet-hub.heroku-app.com 🐍🐠🦜🐇
 
-Things you may want to cover:
+### [Team](https://github.com/githubsttar/PetHub-backend#team) |  [User stories](https://github.com/githubsttar/PetHub-backend#user-stories) |  [Getting started](https://github.com/githubsttar/PetHub-backend#getting-started) |  [How to use](https://github.com/githubsttar/PetHub-backend#how-to-use-pethub) | [Our approach](https://github.com/githubsttar/PetHub-backend#our-approach) |   [Testing](https://github.com/githubsttar/PetHub-backend#testing) |   [Deployment](https://github.com/githubsttar/PetHub-backend#deployment) |  [Contributing](https://github.com/githubsttar/PetHub-backend#contributing)
 
-* Ruby version
+## Team 🐕
 
-* System dependencies
+## User stories 🐈
 
-* Configuration
+## Getting started 🐠
 
-* Database creation
+## How to use PetHub 🦄
 
-* Database initialization
+## Our approach 🦜
 
-* How to run the test suite
+## Testing 🐴
 
-* Services (job queues, cache servers, search engines, etc.)
+## Deployment 🐩
 
-* Deployment instructions
+## Contributing 🐍
 
-* ...
+## Licence 🐇

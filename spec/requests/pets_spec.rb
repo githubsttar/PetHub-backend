@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'Pets API', type: :request do
 
-  let!(:pets) { create_list(:pets, 10) }
+  let!(:pets) { create_list(:pet, 10) }
   let(:pets_id) { pets.first.id }
 
   describe 'Get /pets' do
@@ -22,7 +22,7 @@ RSpec.describe 'Pets API', type: :request do
     before { get "/pets/#{pets_id}" }
 
     context 'when the record exists' do
-      it 'returns the todo' do
+      it 'returns the pet' do
         expect(json).not_to be_empty
         expect(json['id']).to eq(pets_id)
       end
@@ -39,8 +39,8 @@ RSpec.describe 'Pets API', type: :request do
       expect(response).to have_http_status(404)
     end
 
-    it 'retuns a not found message' do
-      expect(response.body).to match(/couldn't find body/)
+    it 'returns a not found message' do
+      expect(response.body).to match(/Couldn't find Pet with 'id'=100/)
     end
   end
 end
@@ -49,7 +49,7 @@ describe 'POST /pets' do
   let(:valid_attributes) { { name: 'spike', owner: 'Jamie', description: 'An amazing doggie' } }
 
   context 'when the request is valid' do
-    before { post '/todos', params: valid_attributes }
+    before { post '/pets', params: valid_attributes }
 
     it 'creates a pet' do
       expect(json['name']).to eq('spike')
@@ -71,7 +71,7 @@ describe 'POST /pets' do
 
     it 'returns a validation failure messge' do
       expect(response.body)
-      .to match(/Validation failed: Created by can't be blank/)
+      .to match(/Validation failed: Owner can't be blank, Description can't be blank/)
     end
   end
 end
@@ -83,7 +83,7 @@ describe 'Put /pets/:id' do
     before { put "/pets/#{pets_id}", params: valid_attributes }
 
     it 'updates the record' do
-      expect(response).to be_empty
+      expect(response.body).to be_empty
     end
 
     it 'returns the status code 204' do

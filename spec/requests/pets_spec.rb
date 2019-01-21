@@ -5,7 +5,7 @@ RSpec.describe 'Pets API', type: :request do
   let!(:pets) { create_list(:pet, 10) }
   let(:pets_id) { pets.first.id }
 
-  describe 'Get /pets' do
+  describe 'GET /pets' do
     before { get '/pets' }
 
     it 'returns pets' do
@@ -18,7 +18,7 @@ RSpec.describe 'Pets API', type: :request do
     end
   end
 
-  describe 'Get /pets/:id' do
+  describe 'GET /pets/:id' do
     before { get "/pets/#{pets_id}" }
 
     context 'when the record exists' do
@@ -27,7 +27,7 @@ RSpec.describe 'Pets API', type: :request do
         expect(json['id']).to eq(pets_id)
       end
 
-      it 'retuns status code 200' do
+      it 'returns status code 200' do
         expect(response).to have_http_status(200)
       end
     end
@@ -76,7 +76,7 @@ describe 'POST /pets' do
   end
 end
 
-describe 'Put /pets/:id' do
+describe 'PUT /pets/:id' do
   let(:valid_attributes) { { name: 'diamond' } }
 
   context 'when the record exists' do

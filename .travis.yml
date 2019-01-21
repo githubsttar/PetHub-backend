@@ -1,6 +1,7 @@
+services:
+  - postgresql
 before_script:
 - cp config/database.yml.travis config/database.yml
-- psql -c ‘create database PetHub-backend_test;’ -U postgres
 language: ruby
 cache: bundler
 script:

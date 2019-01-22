@@ -1,5 +1,4 @@
 class TagsController < ApplicationController
-
   before_action :set_tags, only: [:show, :update, :destroy]
 
   def index
@@ -24,14 +23,11 @@ class TagsController < ApplicationController
 
   private
 
-  def tag_params
-    # whitelist params
-    params.permit(:name)
-  end
+    def tag_params
+      params.permit(:name)
+    end
 
-  def set_tags
-    @tags = Tag.find(params[:id])
-  end
-
-
+    def set_tags
+      @tags = Tag.find(params[:id])
+    end
 end

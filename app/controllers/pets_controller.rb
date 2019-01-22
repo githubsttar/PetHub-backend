@@ -1,12 +1,10 @@
 class PetsController < ApplicationController
-
   before_action :set_pet, only: [:show, :update, :destroy]
 
   def index
     @pets = Pet.all
     json_response(@pets)
   end
-
 
   def create
     @pet = Pet.create!(pet_params)
@@ -25,19 +23,18 @@ class PetsController < ApplicationController
   end
 
   # DELETE /pets/:id
-   def destroy
+  def destroy
     @pet.destroy
     head :no_content
   end
 
   private
 
-  def pet_params
-    # whitelist params
-    params.permit(:name, :owner, :description)
-  end
+    def pet_params
+      params.permit(:name, :owner, :description)
+    end
 
-  def set_pet
-    @pet = Pet.find(params[:id])
-  end
+    def set_pet
+      @pet = Pet.find(params[:id])
+    end
 end

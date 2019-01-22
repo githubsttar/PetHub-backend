@@ -7,11 +7,20 @@ class PetstagsController < ApplicationController
     json_response(@petstags)
   end
 
+  def create
+    @petstags = PetTag.create!(petstags_params)
+    json_response(@petstags, :created)
+  end
+
   def show
     json_response(@petstags)
   end
 
   private
+
+  def petstags_params
+    params.permit(:pet_id, :tag_id)
+  end
 
   def set_pets_tags
     @petstags = PetTag.find(params[:id])

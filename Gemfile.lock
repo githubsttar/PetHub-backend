@@ -191,7 +191,6 @@ DEPENDENCIES
   puma (~> 3.11)
   rails (~> 5.2.2)
   rspec-rails
-  rubocop (~> 0.63.1)
   rubocop-rails_config
   shoulda-matchers
   spring

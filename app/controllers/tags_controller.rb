@@ -16,6 +16,12 @@ class TagsController < ApplicationController
     json_response(@tags)
   end
 
+  def update
+  end
+
+  def destroy
+  end
+
   private
 
   def tag_params

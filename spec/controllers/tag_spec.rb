@@ -74,4 +74,27 @@ RSpec.describe 'Tags API', type: :request do
     end
   end
 
+  describe 'PUT /tags/:id' do
+    let(:valid_attributes) { { name: 'lost' } }
+
+    context 'when the record exists' do
+      before { put "/tags/#{tags_id}", params: valid_attributes }
+
+      it 'updates the record' do
+        expect(response.body).to be_empty
+      end
+
+      it 'returns the status code 204' do
+        expect(response).to have_http_status(204)
+      end
+    end
+  end
+
+  describe 'DELETE /tags/:id' do
+    before { delete "/tags/#{tags_id}" }
+
+    it 'returns status code 304' do
+      expect(response).to have_http_status(204)
+    end
+  end
 end

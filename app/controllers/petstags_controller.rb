@@ -1,5 +1,4 @@
 class PetstagsController < ApplicationController
-
   before_action :set_pets_tags, only: [:show, :update, :destroy]
 
   def index
@@ -24,12 +23,11 @@ class PetstagsController < ApplicationController
 
   private
 
-  def petstags_params
-    params.permit(:pet_id, :tag_id)
-  end
+    def petstags_params
+      params.permit(:pet_id, :tag_id)
+    end
 
-  def set_pets_tags
-    @petstags = PetTag.find(params[:id])
-  end
-
+    def set_pets_tags
+      @petstags = PetTag.find(params[:id])
+    end
 end

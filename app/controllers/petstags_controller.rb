@@ -16,6 +16,9 @@ class PetstagsController < ApplicationController
     json_response(@petstags)
   end
 
+  def update
+  end
+
   private
 
   def petstags_params

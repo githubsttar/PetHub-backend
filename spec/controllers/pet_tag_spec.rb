@@ -46,6 +46,49 @@ RSpec.describe 'Pets Tags API', type: :request do
       end
     end
   end
+  describe 'POST /tags' do
+    let(:valid_attributes) { { name: 'lost' } }
 
+    context 'when the request is valid' do
+      before { post '/tags', params: valid_attributes }
+
+      it 'creates a tag' do
+        expect(json['name']).to eq('lost')
+      end
+
+      it 'returns status code 201' do
+        expect(response).to have_http_status(201)
+      end
+    end
+
+    context 'when the request is invalid' do
+      before { post '/tags', params: { name:'' } }
+
+      it 'returns status code 422' do
+        expect(response).to have_http_status(422)
+      end
+
+      it 'returns a validation failure message' do
+        expect(response.body)
+          .to match(/Validation failed: Name can't be blank/)
+      end
+    end
+  end
+
+  describe 'PUT /petstags/:id' do
+    let(:valid_attributes) { { pet_tag: 'lost' } }
+
+    context 'when the record exists' do
+      before { put "/petstags/#{pet_tag_id}", params: valid_attributes }
+
+      it 'updates the record' do
+        expect(response.body).to be_empty
+      end
+
+      it 'returns the status code 204' do
+        expect(response).to have_http_status(204)
+      end
+    end
+  end
 
 end

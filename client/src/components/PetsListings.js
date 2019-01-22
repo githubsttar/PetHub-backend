@@ -1,45 +1,45 @@
-import React, { Component } from 'react';
-import { Container, Header, Button, Icon, Dimmer, Loader, Divider } from 'semantic-ui-react'
+import React, {Component} from 'react';
 
 class PetsListings extends Component {
-    constructor () {
-        super();
-        this.state = {};
-        this.getPets = this.getPets.bind(this);
-        this.getPet = this.getPet.bind(this)
-    }
-    componentDidMount() {
-        this.getPets();
-    }
+  constructor() {
+    super();
+    this.state = {};
+    this.getPets = this.getPets.bind(this);
+    this.getPet = this.getPet.bind(this)
+  }
 
-    fetch (endpoint) {
-        return window.fetch(endpoint)
-            .then(response => response.json())
-            .catch(error => console.log(error))
-    }
+  componentDidMount() {
+    this.getPets();
+  }
 
-    getPets () {
-        this.fetch('/pets')
-            .then(pets => {
-                if (pets.length) {
-                    this.setState({pets: pets});
-                    this.getPet(pets[0].id)
-                } else {
-                    this.setState({pets: []})
-                }
-            })
-    }
+  fetch(endpoint) {
+    return window.fetch(endpoint)
+      .then(response => response.json())
+      .catch(error => console.log(error))
+  }
 
-    getPet (id) {
-        this.fetch(`/pets/${id}`)
-            .then(pet => this.setState({pet: pet}))
-    }
+  getPets() {
+    this.fetch('/pets')
+      .then(pets => {
+        if (pets.length) {
+          this.setState({pets: pets});
+          this.getPet(pets[0].id)
+        } else {
+          this.setState({pets: []})
+        }
+      })
+  }
 
-    render () {
-        let {pets, pet} = this.state;
-        return pet
+  getPet(id) {
+    this.fetch(`/pets/${id}`)
+      .then(pet => this.setState({pet: pet}))
+  }
 
-    }
+  render() {
+    let {pets, pet} = this.state;
+    return pet
+
+  }
 
 }
 

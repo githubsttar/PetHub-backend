@@ -69,7 +69,7 @@ describe 'POST /pets' do
       expect(response).to have_http_status(422)
     end
 
-    it 'returns a validation failure messge' do
+    it 'returns a validation failure message' do
       expect(response.body)
       .to match(/Validation failed: Owner can't be blank, Description can't be blank/)
     end

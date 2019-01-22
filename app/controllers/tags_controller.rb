@@ -13,7 +13,7 @@ class TagsController < ApplicationController
   end
 
   def show
-    puts json_response(@tags)
+    json_response(@tags)
   end
 
   private

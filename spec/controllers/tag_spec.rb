@@ -31,5 +31,47 @@ RSpec.describe 'Tags API', type: :request do
         expect(response).to have_http_status(200)
       end
     end
+
+    context 'when the record does not exist' do
+      let(:tags_id) { 100 }
+
+      it 'returns the status code' do
+        expect(response).to have_http_status(404)
+      end
+
+      it 'returns a not found message' do
+        expect(response.body).to match(/Couldn't find Tag with 'id'=100/)
+      end
+    end
   end
+
+  describe 'POST /tags' do
+    let(:valid_attributes) { { name: 'lost' } }
+
+    context 'when the request is valid' do
+      before { post '/tags', params: valid_attributes }
+
+      it 'creates a tag' do
+        expect(json['name']).to eq('lost')
+      end
+
+      it 'returns status code 201' do
+        expect(response).to have_http_status(201)
+      end
+    end
+
+    context 'when the request is invalid' do
+      before { post '/tags', params: { name:'' } }
+
+      it 'returns status code 422' do
+        expect(response).to have_http_status(422)
+      end
+
+      it 'returns a validation failure message' do
+        expect(response.body)
+          .to match(/Validation failed: Name can't be blank/)
+      end
+    end
+  end
+
 end

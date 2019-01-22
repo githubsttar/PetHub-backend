@@ -23,3 +23,6 @@ yarn-debug.log*
 yarn-error.log*
 
 /note.md
+/src/test/*
+/src/test/TodoListLtem.js
+/src/test/__tests__

@@ -18,29 +18,29 @@ class Pet extends Component {
       .catch(error => console.log(error))
   }
 
-  getPet(id) {
-    this.fetch(`/pets/${id}`)
-      .then(pet => this.setState({pet: pet}))
+  getPet() {
+    this.fetch(`/pets/${this.props.match.params.id}`)
+    .then(pet => {
+      this.setState({pet: pet});
+    })
   }
 
   render () {
     let {pet} = this.state;
     return pet
-    ? <Container text>
-    <Header as='h2' color="orange">
-             <Icon name='paw' circular />
-             <Header.Content>
-               PetsHub
-             </Header.Content>
-           </Header>
+    ? <Container>
+        <Header as='h2' color="orange">
+         <Icon name='paw' circular />
+         <Header.Content>
+           PetsHub
+         </Header.Content>
+        </Header>
 
+          <p>Name: {pet.name} </p>
+          <p>Description: {pet.description} </p>
+          <p>Owner: {pet.owner} </p>
 
-                   <p>Name: {pet.name} </p>
-                   <p>Description: {pet.description} </p>
-                   <p>Owner: {pet.owner} </p>
-
-
-        </Container>
+      </Container>
     : <Container text>
          <Dimmer active inverted>
            <Loader content='Loading' />

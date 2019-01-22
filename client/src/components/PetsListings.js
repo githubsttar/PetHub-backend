@@ -6,7 +6,13 @@ class PetsListings extends Component {
     super();
     this.state = {};
     this.getPets = this.getPets.bind(this);
-    this.getPet = this.getPet.bind(this)
+    this.getPet = this.getPet.bind(this);
+    this.routeChange = this.routeChange.bind(this);
+  }
+
+  routeChange(id){
+    let path = `/pets/${id}`;
+    this.props.history.push(path);
   }
 
   componentDidMount() {
@@ -50,7 +56,7 @@ class PetsListings extends Component {
            {pets && pets.length
              ? <Button.Group color='grey' fluid widths={pets.length}>
                {Object.keys(pets).map((key) => {
-                 return <Button active={pet && pet.id === pets[key].id} fluid key={key} onClick={() => this.getPet(pets[key].id)}>
+                 return <Button active={pet && pet.id === pets[key].id} fluid key={key} onClick={() => this.routeChange(pets[key].id)}>
                    <p>Name: {pets[key].name} </p>
                    <p>Description: {pets[key].description} </p>
                    <p>Owner: {pets[key].owner} </p>

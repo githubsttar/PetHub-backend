@@ -12,11 +12,19 @@ class TagsController < ApplicationController
     json_response(@tag, :created)
   end
 
+  def show
+    puts json_response(@tags)
+  end
+
   private
 
   def tag_params
     # whitelist params
     params.permit(:name)
+  end
+
+  def set_tags
+    @tags = Tag.find(params[:id])
   end
 
 

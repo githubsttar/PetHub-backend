@@ -7,4 +7,14 @@ class PetstagsController < ApplicationController
     json_response(@petstags)
   end
 
+  def show
+    json_response(@petstags)
+  end
+
+  private
+
+  def set_pets_tags
+    @petstags = PetTag.find(params[:id])
+  end
+
 end

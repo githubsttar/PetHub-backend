@@ -1,11 +1,18 @@
 import React, {Component} from 'react';
+import { Container, Header, Segment, Button, Icon, Dimmer, Loader, Divider } from 'semantic-ui-react';
 
 class PetsListings extends Component {
   constructor() {
     super();
     this.state = {};
     this.getPets = this.getPets.bind(this);
-    this.getPet = this.getPet.bind(this)
+    this.getPet = this.getPet.bind(this);
+    this.routeChange = this.routeChange.bind(this);
+  }
+
+  routeChange(id){
+    let path = `/pets/${id}`;
+    this.props.history.push(path);
   }
 
   componentDidMount() {
@@ -35,11 +42,38 @@ class PetsListings extends Component {
       .then(pet => this.setState({pet: pet}))
   }
 
-  render() {
-    let {pets, pet} = this.state;
-    return pet
+  render () {
+   let {pets, pet} = this.state;
+     return pet
+       ? <Container text>
+           <Header as='h2' color="orange">
+             <Icon name='paw' circular />
+             <Header.Content>
+               PetsHub
+             </Header.Content>
+           </Header>
+           <Divider hidden section />
+           {pets && pets.length
+             ? <Button.Group color='grey' fluid widths={pets.length}>
+               {Object.keys(pets).map((key) => {
+                 return <Button active={pet && pet.id === pets[key].id} fluid key={key} onClick={() => this.routeChange(pets[key].id)}>
+                   <p>Name: {pets[key].name} </p>
+                   <p>Description: {pets[key].description} </p>
+                   <p>Owner: {pets[key].owner} </p>
 
-  }
+                 </Button>
+                 })}
+             </Button.Group>
+             : <Container textAlign='center'>No Pets found.</Container>
+           }
+           <Divider section />
+       </Container>
+     : <Container text>
+         <Dimmer active inverted>
+           <Loader content='Loading' />
+         </Dimmer>
+       </Container>
+   }
 
 }
 

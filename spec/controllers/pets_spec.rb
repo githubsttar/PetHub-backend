@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe 'Pets API', type: :request do
-
   let!(:pets) { create_list(:pet, 10) }
   let(:pets_id) { pets.first.id }
 

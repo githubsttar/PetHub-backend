@@ -1,4 +1,4 @@
-# PetHub 🐾 [![Build Status](https://travis-ci.com/githubsttar/PetHub-backend.svg?branch=master)](https://travis-ci.com/githubsttar/PetHub-backend)
+# PetHub 🐾 [![Build Status](https://travis-ci.com/githubsttar/PetHub-backend.svg?branch=master)](https://travis-ci.com/githubsttar/PetHub-backend) [![Coverage Status](https://coveralls.io/repos/github/githubsttar/PetHub-backend/badge.svg?branch=master)](https://coveralls.io/github/githubsttar/PetHub-backend?branch=master)
 
 🐕🐩🐈🐴http://pet-hub.heroku-app.com 🐍🐠🦜🐇
 

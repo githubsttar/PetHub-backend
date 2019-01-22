@@ -3,5 +3,7 @@ Rails.application.routes.draw do
     resources :pets do
     end
     resources :tags do
+      end
+    resources :petstags do
     end
 end

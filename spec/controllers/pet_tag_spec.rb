@@ -90,5 +90,12 @@ RSpec.describe 'Pets Tags API', type: :request do
       end
     end
   end
+  describe 'DELETE /petstags/:id' do
+    before { delete "/petstags/#{pet_tag_id}" }
+
+    it 'returns status code 304' do
+      expect(response).to have_http_status(204)
+    end
+  end
 
 end

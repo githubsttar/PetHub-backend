@@ -19,6 +19,9 @@ class PetstagsController < ApplicationController
   def update
   end
 
+  def destroy
+  end
+
   private
 
   def petstags_params

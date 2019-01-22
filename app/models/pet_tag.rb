@@ -1,0 +1,2 @@
+class PetTag < ApplicationRecord
+end

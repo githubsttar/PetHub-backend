@@ -1,42 +1,37 @@
-class PetsForm extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      name: '',
-      owner: '',
-      description: '',
-      tag: ''
-    };
+import React, { Component } from 'react';
 
-    this.handleChange = this.handleChange.bind(this);
+class PetsForm extends React.Component {
+  constructor() {
+    super();
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleChange(event) {
-    this.setState({name: event.target.value});
-  }
-
   handleSubmit(event) {
-    alert('A Pet was submitted: ' + this.state.name);
     event.preventDefault();
-    const newPet = {
-      name: this.state.name,
-      owner: this.state.owner,
-      description: this.state.description,
-      tag: this.state.tag
-    };
-    //Add name via addUser action
-    this.props.addPet(newPet, this.props.history);
+    const data = new FormData(event.target);
+
+    fetch('/pets/new', {
+      method: 'POST',
+      body: data,
+    });
   }
 
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
-        <label>
-          Pet:
-          <textarea value={this.state.value} onChange={this.handleChange} />
-        </label>
-        <input type="submit" value="Submit" />
+        <label htmlFor="name">name</label>
+        <input id="name" name="name" type="text" />
+
+        <label htmlFor="owner">owner</label>
+        <input id="owner" name="owner" type="text" />
+
+        <label htmlFor="description">Description</label>
+        <input id="description" name="description" type="textarea" />
+
+        <label htmlFor="tag">Tag</label>
+        <input id="tag" name="tag" type="text" />
+
+        <button>Send data!</button>
       </form>
     );
   }

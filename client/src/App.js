@@ -8,6 +8,7 @@ import Route from "react-router/Route";
 import 'semantic-ui-css/semantic.min.css';
 import createBrowserHistory from "history/createBrowserHistory";
 import './App.css';
+import PetsForm from "./components/PetsForm";
 
 class App extends Component {
   render() {
@@ -16,6 +17,7 @@ class App extends Component {
         <div className="App">
           <Container>
             <Route path="/pets" exact component={PetsListings}/>
+            <Route path="/pets/new" exact component={PetsForm}/>
             <Route path="/pets/:id" exact component={Pet}/>
           </Container>
         </div>

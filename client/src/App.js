@@ -17,8 +17,8 @@ class App extends Component {
         <div className="App">
           <Container>
             <Route path="/pets" exact component={PetsListings}/>
-            <Route path="/pets/new" exact component={PetsForm}/>
             <Route path="/pets/:id" exact component={Pet}/>
+            <Route path="/create" exact component={PetsForm}/>
           </Container>
         </div>
       </Router>

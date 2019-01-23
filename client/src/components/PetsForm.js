@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Navbar from './Navbar'
 
 class PetsForm extends React.Component {
   constructor() {
@@ -19,6 +20,7 @@ class PetsForm extends React.Component {
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
+        <Navbar />
         <label htmlFor="name">name</label>
         <input id="name" name="name" type="text" />
 

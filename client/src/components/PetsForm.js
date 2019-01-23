@@ -2,7 +2,10 @@ class PetsForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: 'Please write an essay about your favorite DOM element.'
+      name: '',
+      owner: '',
+      description: '',
+      tag: ''
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -10,12 +13,20 @@ class PetsForm extends React.Component {
   }
 
   handleChange(event) {
-    this.setState({value: event.target.value});
+    this.setState({name: event.target.value});
   }
 
   handleSubmit(event) {
-    alert('A Pet was submitted: ' + this.state.value);
+    alert('A Pet was submitted: ' + this.state.name);
     event.preventDefault();
+    const newPet = {
+      name: this.state.name,
+      owner: this.state.owner,
+      description: this.state.description,
+      tag: this.state.tag
+    };
+    //Add name via addUser action
+    this.props.addUser(newUser, this.props.history);
   }
 
   render() {

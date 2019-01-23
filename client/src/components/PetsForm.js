@@ -26,7 +26,7 @@ class PetsForm extends React.Component {
       tag: this.state.tag
     };
     //Add name via addUser action
-    this.props.addUser(newUser, this.props.history);
+    this.props.addPet(newPet, this.props.history);
   }
 
   render() {

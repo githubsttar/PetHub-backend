@@ -11,9 +11,10 @@ require File.expand_path('../../config/environment', __FILE__)
 abort("The Rails environment is running in production mode!") if Rails.env.production?
 require 'rspec/rails'
 require 'simplecov'
+require 'simplecov-console'
+SimpleCov.formatter = SimpleCov::Formatter::HTMLFormatter
 # Add additional requires below this line. Rails is not loaded until this point!
 SimpleCov.start 'rails'
-
 SimpleCov.start do
   add_filter "app/mailers"
   add_filter "app/jobs"

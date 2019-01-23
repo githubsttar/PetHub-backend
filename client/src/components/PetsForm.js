@@ -10,7 +10,7 @@ class PetsForm extends React.Component {
     event.preventDefault();
     const data = new FormData(event.target);
 
-    fetch('/pets/new', {
+    fetch('/pets', {
       method: 'POST',
       body: data,
     });

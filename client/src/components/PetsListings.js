@@ -47,7 +47,7 @@ class PetsListings extends Component {
    let {pets, pet} = this.state;
      return pet
        ? <Container text>
-          <Navbar />
+         <Navbar />
            <Divider hidden section />
            {pets && pets.length
              ? <Button.Group color='grey' fluid widths={pets.length}>

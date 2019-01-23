@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {Container} from 'semantic-ui-react'
 import PetsListings from './components/PetsListings';
 import Pet from './components/Pet';
+import PetsForm from './components/PetsForm';
 import Router from "react-router/Router";
 import Route from "react-router/Route";
 import 'semantic-ui-css/semantic.min.css';
@@ -14,8 +15,10 @@ class App extends Component {
       <Router history={createBrowserHistory()}>
         <div className="App">
           <Container>
+          <PetsForm/>
             <Route path="/pets" exact component={PetsListings}/>
             <Route path="/pets/:id" exact component={Pet}/>
+            <Route path="/petsform" exact component={PetsForm}/>
           </Container>
         </div>
       </Router>

@@ -3,7 +3,7 @@ module V1
     before_action :set_pet, only: [:show, :update, :destroy]
 
     def index
-      @pets = Pet.all
+      @pets = Pet.all.paginate(page: params[:page], per_page: 20)
       json_response(@pets)
     end
 

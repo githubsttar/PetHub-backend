@@ -21,7 +21,7 @@ class Navbar extends Component {
           <div className="menu__right">
             <ul className="menu__list">
               <li className="menu__list-item"><a className="menu__link menu__link--active" href="/pets">Home</a></li>
-              <li className="menu__list-item"><a className="menu__link" href="#">Report a Pet</a></li>
+              <li className="menu__list-item"><a className="menu__link" href="/create">Report a Pet</a></li>
               <li className="menu__list-item"><a className="menu__link" href="#">User</a></li>
             </ul>
           </div>

@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import { Container, Header, Segment, Button, Icon, Dimmer, Loader, Divider } from 'semantic-ui-react';
+import Navbar from './Navbar'
 
 class Pet extends Component {
   constructor() {
@@ -29,6 +30,7 @@ class Pet extends Component {
     let {pet} = this.state;
     return pet
     ? <Container>
+      <Navbar />;
         <Header as='h2' color="orange">
          <Icon name='paw' circular />
          <Header.Content>

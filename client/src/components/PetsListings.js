@@ -30,6 +30,7 @@ class PetsListings extends Component {
     this.fetch('/pets')
       .then(pets => {
         if (pets.length) {
+          console.log(pets[1]['name'] == 'cat')
           this.setState({pets: pets});
           this.getPet(pets[0].id)
         } else {
@@ -47,13 +48,7 @@ class PetsListings extends Component {
    let {pets, pet} = this.state;
      return pet
        ? <Container text>
-          <Navbar />;
-           <Header as='h2' color="orange">
-             <Icon name='paw' circular />
-             <Header.Content>
-               PetsHub
-             </Header.Content>
-           </Header>
+          <Navbar />
            <Divider hidden section />
            {pets && pets.length
              ? <Button.Group color='grey' fluid widths={pets.length}>
@@ -62,7 +57,6 @@ class PetsListings extends Component {
                    <p>Name: {pets[key].name} </p>
                    <p>Description: {pets[key].description} </p>
                    <p>Owner: {pets[key].owner} </p>
-
                  </Button>
                  })}
              </Button.Group>

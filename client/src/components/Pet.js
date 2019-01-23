@@ -30,18 +30,10 @@ class Pet extends Component {
     let {pet} = this.state;
     return pet
     ? <Container>
-      <Navbar />;
-        <Header as='h2' color="orange">
-         <Icon name='paw' circular />
-         <Header.Content>
-           PetsHub
-         </Header.Content>
-        </Header>
-
-          <p>Name: {pet.name} </p>
-          <p>Description: {pet.description} </p>
-          <p>Owner: {pet.owner} </p>
-
+      <Navbar />
+        <p>Name: {pet.name} </p>
+        <p>Description: {pet.description} </p>
+        <p>Owner: {pet.owner} </p>
       </Container>
     : <Container text>
          <Dimmer active inverted>

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import Navbar from './Navbar'
+import { Col, Row, Button, Form, FormGroup, Label, Input, Container, FormText } from 'reactstrap';
 
-class PetsForm extends React.Component {
+class PetsForm extends Component {
   constructor() {
     super();
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -19,22 +19,44 @@ class PetsForm extends React.Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <Navbar />
-        <label htmlFor="name">name</label>
-        <input id="name" name="name" type="text" />
-
-        <label htmlFor="owner">owner</label>
-        <input id="owner" name="owner" type="text" />
-
-        <label htmlFor="description">Description</label>
-        <input id="description" name="description" type="textarea" />
-
-        <label htmlFor="tag">Tag</label>
-        <input id="tag" name="tag" type="text" />
-
-        <button>Send data!</button>
-      </form>
+      <Container className='App'>
+        <h1>Enter your pet information</h1>
+        <Form onSubmit={this.handleSubmit} className="form">
+          <Row form>
+            <Col>
+              <FormGroup>
+                <Label for="name">Name</Label>
+                <Input type="text" name="name" id="name" placeholder="Pet name" />
+              </FormGroup>
+            </Col>
+            <Col>
+              <FormGroup>
+                <Label for="owner">Owner</Label>
+                <Input type="text" name="owner" id="owner" placeholder="Your name" />
+              </FormGroup>
+            </Col>
+          </Row>
+          <FormGroup>
+            <Label for="description">Description</Label>
+            <Input type="textarea" name="description" id="description" placeholder="Describe the pet"/>
+          </FormGroup>
+          <FormGroup>
+            <Label for="exampleFile">Picture</Label>
+            <Input type="file" name="file" id="exampleFile" />
+            <FormText color="muted">
+            </FormText>
+          </FormGroup>
+          <FormGroup>
+            <Label for="exampleSelect">Status</Label>
+            <Input type="select" name="tag" id="exampleTag">
+              <option>Lost</option>
+              <option>Found</option>
+              <option>Reunited</option>
+            </Input>
+          </FormGroup>
+          <Button color="dark" style={{marginTop: '2rem'}} block>Report</Button>
+        </Form>
+      </Container>
     );
   }
 }

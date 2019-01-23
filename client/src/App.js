@@ -4,6 +4,7 @@ import PetsListings from './components/PetsListings';
 import Pet from './components/Pet';
 import Navbar from './components/Navbar'
 import Router from "react-router/Router";
+import 'bootstrap/dist/css/bootstrap.min.css';
 import Route from "react-router/Route";
 import 'semantic-ui-css/semantic.min.css';
 import createBrowserHistory from "history/createBrowserHistory";

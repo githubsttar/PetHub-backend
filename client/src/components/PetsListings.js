@@ -30,7 +30,6 @@ class PetsListings extends Component {
     this.fetch('/pets')
       .then(pets => {
         if (pets.length) {
-          console.log(pets[1]['name'] == 'cat')
           this.setState({pets: pets});
           this.getPet(pets[0].id)
         } else {

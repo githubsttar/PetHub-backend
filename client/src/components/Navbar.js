@@ -1,34 +1,78 @@
-
 import React, {Component} from 'react';
+import { NavLink } from 'react-router-dom'
 import logo from './logo.png';
-import searchIcon from './search-icon.png';
 import {
   Container,
   Icon,
-  Image,
-  Menu,
-  Sidebar,
-  Responsive
+  Menu
 } from "semantic-ui-react";
 
-class Navbar extends Component {
+class NavBar extends Component{
+ constructor(){
+    super();
 
-  render() { 
-    return (
-      <div className="container center">
-        <nav className="menu">
-          <h1 className="menu__logo">Epic Co.</h1>
-          <div className="menu__right">
-            <ul className="menu__list">
-              <li className="menu__list-item"><a className="menu__link menu__link--active" href="/pets">Home</a></li>
-              <li className="menu__list-item"><a className="menu__link" href="/pets/create">Report a Pet</a></li>
-              <li className="menu__list-item"><a className="menu__link" href="#">User</a></li>
-            </ul>
-          </div>
-        </nav>
-    </div>
+    this.state={
+        activeItem: "home"
+    }
+}
+handleItemClick = (e, { name }) => this.setState({ activeItem: name })
+
+
+render() {
+const { activeItem } = this.state
+
+return (
+    <Container className='menu'>
+        <Menu.Item className='menu__link'>
+          PetHub
+        </Menu.Item>
+        <Menu.Item
+          className='menu__link'
+          as={NavLink}
+          to="/"
+          name='home'
+          active={activeItem === 'home'}
+          onClick={this.handleItemClick}>
+          <Icon name="home"/>Home
+        </Menu.Item>
+        <Menu.Item
+          className='menu__link'
+          as={NavLink}
+          to="/pets"
+          name='allPets'
+          active={activeItem === 'allPets'}
+          onClick={this.handleItemClick}>
+          <Icon name="paw"/>View lost and found pets
+        </Menu.Item>
+        <Menu.Item
+          className='menu__link'
+          as={NavLink}
+          to="/pets/new"
+          name='newPets'
+          active={activeItem === 'newPets'}
+          onClick={this.handleItemClick}>
+          <Icon name="home"/>Report your missing pet
+        </Menu.Item>
+        <Menu.Item
+          className='menu__link'
+          as={NavLink}
+          to="/users/new"
+          name='register'
+          active={activeItem === 'register'}
+          onClick={this.handleItemClick}>
+          <Icon name="pencil"/>Register
+        </Menu.Item>
+        <Menu.Item
+          className='menu__link'
+          as={NavLink}
+          to="/login"
+          name='login'
+          active={activeItem === 'login'}
+          onClick={this.handleItemClick}>
+          <Icon name="sign-in"/>Login
+        </Menu.Item>
+    </Container>
     )
   }
 }
-
-export default Navbar;
+export default NavBar;

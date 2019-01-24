@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { Container, Header, Segment, Button, Icon, Dimmer, Loader, Divider } from 'semantic-ui-react';
+import { Container, Header, Segment, Button, Icon, Dimmer, Loader, Divider, Card } from 'semantic-ui-react';
 import Navbar from './Navbar'
 
 class PetsListings extends Component {
@@ -47,18 +47,21 @@ class PetsListings extends Component {
    let {pets, pet} = this.state;
      return pet
        ? <Container text>
-         <Navbar />
            <Divider hidden section />
            {pets && pets.length
-             ? <Button.Group color='grey' fluid widths={pets.length}>
+             ? <Card.Group itemsPerRow={2}>
                {Object.keys(pets).map((key) => {
-                 return <Button active={pet && pet.id === pets[key].id} fluid key={key} onClick={() => this.routeChange(pets[key].id)}>
-                   <p>Name: {pets[key].name} </p>
-                   <p>Description: {pets[key].description} </p>
-                   <p>Owner: {pets[key].owner} </p>
-                 </Button>
+                 return <Card
+                 active={pet && pet.id === pets[key].id}
+                 fluid key={key}
+                 onClick={() => this.routeChange(pets[key].id)}
+                 image="http://lorempixel.com/400/400/animals"
+                 header={pets[key].name}
+                 description={pets[key].description}
+                 meta={pets[key].tag}
+                 />
                  })}
-             </Button.Group>
+             </Card.Group>
              : <Container textAlign='center'>No Pets found.</Container>
            }
            <Divider section />

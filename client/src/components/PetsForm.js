@@ -8,11 +8,6 @@ class PetsForm extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  routeChange(){
-    let path = `/pets`;
-    this.props.history.push(path);
-  }
-
   handleSubmit(event) {
     event.preventDefault();
     const data = new FormData(event.target);
@@ -20,8 +15,11 @@ class PetsForm extends Component {
     fetch('/pets', {
       method: 'POST',
       body: data,
-    });
-    this.routeChange()
+    }).then(
+      (response) => response.json().then(
+        (json) => this.props.history.push('/pets/' + json.id)
+      )
+    );
   }
 
   render() {

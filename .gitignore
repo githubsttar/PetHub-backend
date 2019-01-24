@@ -23,6 +23,6 @@
 # Ignore master key for decrypting credentials and more.
 /config/master.key
 
-/.idea
-/note.md
-/coverage/*
+.idea
+note.md
+coverage/*

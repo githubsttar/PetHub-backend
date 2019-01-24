@@ -11,7 +11,7 @@ deploy:
   provider: heroku
   api_key:
     secure: HqML0wjlWDJTRiKhoHfdLqLq7WXpaaqDvLMne7SgdMRJWMJaWt9MJsMXUBAjdDMAjH6Pup3VTdOhVWsvoku2M6AHF1d7i2L0S7bfm84bmUv4IjLNj+mJqj0p/q7iWyTCsC+TH7XRrppud4JZ4dV+RF0JlnOJ+s9X2V4G0YIQZi7+wr4sWROJe1wnojczx6ciKRhHKOhwqzKiuM4Y8ijidEekXJeThITKpB4wRbzQg/AOH4c8YZsbv0nnpQAp/UvJ4I5EILSiq+y5j5vSUN3qifLbhX8+ERMRyTT8oG+27S3NZ3JP71uIz63SSbGeF0+Yg4BscJEmxcTwG1gl9iyMAyTKB0VZuzcqYAtu0Sc0YzT8DBFuWDF5VtkCT3g0o1stSNDx6WtsCvzLDmNJ7n9+AlKf8JIrVrFeGMAZnfLmciIHyqvknncHyZE0c2vubIMfTClRzdhV0xWBeNFBMaScxk3bBEyftGffIMrJeTmKya1tYELEk2OJY07vI6Q+kHwambBp0eC3bfuTS0hLhioVBEgtRYRjksNLjt9yDzDaqCCHuo6qe1yx9+kphwtG9Xzqmkkwh8UGQcHwpebAVAQKvua3iGNQr3eERn6QnSGj179jTaAPC+XP1D7crju8d9VK/PB6Fr/rOwRWymQP7umLHgiKm90/Hp2/axTCSOHv2yQ=
-  app: pet-hub
+  app: pet-hub-api
   run: rake db:migrate
   on:
     repo: githubsttar/PetHub-backend

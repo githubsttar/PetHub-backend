@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import { Container, Header, Segment, Button, Icon, Dimmer, Loader, Divider } from 'semantic-ui-react';
-import Navbar from './Navbar'
+import { Container, Header, Image } from 'semantic-ui-react';
+import Layout from './Layout'
 
 class Pet extends Component {
   constructor() {
@@ -29,17 +29,18 @@ class Pet extends Component {
   render () {
     let {pet} = this.state;
     return pet
-    ? <Container>
-      <Navbar />
-        <p>Name: {pet.name} </p>
-        <p>Description: {pet.description} </p>
-        <p>Owner: {pet.owner} </p>
-      </Container>
-    : <Container text>
-         <Dimmer active inverted>
-           <Loader content='Loading' />
-         </Dimmer>
-       </Container>
+    ? <div>
+        <Header as='h1' textalign='center'>
+          <Header.Content>{pet.name}</Header.Content>
+        </Header>
+        <Image centered size='large' src="http://lorempixel.com/400/400/animals" />
+        <h2>{pet.description} </h2>
+        <h3>Owned by {pet.owner} </h3>
+      </div>
+    : <div>
+        <p> No pets :( </p>
+      </div>
+
   }
 
 }

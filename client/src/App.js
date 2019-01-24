@@ -33,6 +33,6 @@ class App extends Component {
 }
 
 export default GoogleApiWrapper({
-  apiKey: 'REACT_APP_API_KEY',
+  apiKey: process.env.REACT_APP_API_KEY,
   libraries: ['places']
 })(App);

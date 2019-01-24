@@ -30,7 +30,7 @@ class GeoAutoComplete extends React.Component {
       >
         {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
           <div>
-            <input type="textarea" class
+            <input type="textarea"
               {...getInputProps({
                 placeholder: 'Search Places ...',
               })}

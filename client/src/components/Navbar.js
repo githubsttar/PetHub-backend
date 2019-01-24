@@ -15,11 +15,11 @@ class NavBar extends Component{
         activeItem: "home"
     }
 }
-handleItemClick = (e, { name }) => this.setState({ activeItem: name })
+handleItemClick = (e, { name }) => this.setState({ activeItem: name });
 
 
 render() {
-const { activeItem } = this.state
+const { activeItem } = this.state;
 
 return (
     <Container className='menu'>
@@ -47,7 +47,7 @@ return (
         <Menu.Item
           className='menu__link'
           as={NavLink}
-          to="/pets/new"
+          to="/pets/create"
           name='newPets'
           active={activeItem === 'newPets'}
           onClick={this.handleItemClick}>

@@ -6,6 +6,7 @@
   "homepage": "http://pet-hub.herokuapp.com",
   "dependencies": {
     "axios": "^0.18.0",
+    "bootstrap": "^4.2.1",
     "history": "^4.7.2",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",

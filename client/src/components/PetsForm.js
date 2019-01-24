@@ -62,7 +62,7 @@ class PetsForm extends Component {
           </FormGroup>
 
           <FormGroup>
-            <Label for="exampleSelect">Last Seen Location</Label>
+            <Label for="location">Last Seen Location</Label>
             <GeoAutoComplete />
           </FormGroup>
 

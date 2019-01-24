@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import {Container} from 'semantic-ui-react'
+import Layout from './components/Layout'
 import PetsListings from './components/PetsListings';
 import Pet from './components/Pet';
-import Navbar from './components/Navbar'
 import Router from "react-router/Router";
 import Route from "react-router/Route";
 import 'semantic-ui-css/semantic.min.css';
@@ -13,15 +13,17 @@ import PetsForm from "./components/PetsForm";
 class App extends Component {
   render() {
     return (
+      <div className="App">
       <Router history={createBrowserHistory()}>
-        <div className="App">
+        <Layout>
           <Container>
             <Route path="/pets" exact component={PetsListings}/>
             <Route path="/pets/new" exact component={PetsForm}/>
             <Route path="/pets/:id" exact component={Pet}/>
           </Container>
-        </div>
+        </Layout>
       </Router>
+      </div>
     );
   }
 }

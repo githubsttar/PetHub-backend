@@ -50,7 +50,7 @@ class PetsListings extends Component {
          <Navbar />
            <Divider hidden section />
            {pets && pets.length
-             ? <Button.Group color='grey' fluid widths={pets.length}>
+             ? <Button.Group className='card' color='grey' fluid widths='503px' margin-bottom='20px'>
                {Object.keys(pets).map((key) => {
                  return <Button active={pet && pet.id === pets[key].id} fluid key={key} onClick={() => this.routeChange(pets[key].id)}>
                    <p>Name: {pets[key].name} </p>

@@ -55,7 +55,7 @@ class PetsListings extends Component {
                  active={pet && pet.id === pets[key].id}
                  fluid key={key}
                  onClick={() => this.routeChange(pets[key].id)}
-                 image="http://lorempixel.com/400/400/animals"
+                 image={pets[key].pet_picture}
                  header={pets[key].name}
                  description={pets[key].description}
                  meta={pets[key].tag}

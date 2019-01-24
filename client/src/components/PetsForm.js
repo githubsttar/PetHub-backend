@@ -48,8 +48,8 @@ class PetsForm extends Component {
             <Input type="textarea" name="description" id="description" placeholder="Describe the pet"/>
           </FormGroup>
           <FormGroup>
-            <Label for="exampleFile">Picture</Label>
-            <Input type="file" name="file" id="exampleFile" />
+            <Label for="pet_picture">Picture</Label>
+            <Input type="file" name="pet_picture" id="pet_picture" />
             <FormText color="muted">
             </FormText>
           </FormGroup>

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Col, Row, Button, Form, FormGroup, Label, Input, Container, FormText } from 'reactstrap';
-import Navbar from './Navbar'
 
 class PetsForm extends Component {
   constructor() {

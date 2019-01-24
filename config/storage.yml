@@ -1,3 +1,6 @@
+require 'dotenv'
+
+
 test:
   service: Disk
   root: <%= Rails.root.join("tmp/storage") %>
@@ -8,10 +11,10 @@ local:
 
 amazon:
   service: S3
-  access_key_id: <%= ENV['AKIAI2PFBC5IL327SIGA']  %>
-  secret_access_key: <%= ENV['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'] %>
+  access_key_id: <%= ENV["ACCESS_KEY_ID"]  %>
+  secret_access_key: <%= ENV["SECRET_ACCESS_KEY"] %>
   region: EU-London
-  bucket: <%= ENV['arn:aws:s3:::find-my-pets']  %>
+  bucket: <%= ENV["AWS_BUCKET"]  %>
 
 # Use rails credentials:edit to set the AWS secrets (as aws:access_key_id|secret_access_key)
 # amazon:

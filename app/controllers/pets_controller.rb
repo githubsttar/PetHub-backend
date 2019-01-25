@@ -8,8 +8,7 @@ class PetsController < ApplicationController
 
   # POST /pets
   def create
-    params[:file_content_type] = params[:file].instance_values['content_type']
-    params[:file] = params[:file].instance_values['tempfile']
+    params[:image_content_type] = params[:image].instance_values['content_type']
     @pet = Pet.create!(pet_params)
     json_response(@pet, :created)
   end
@@ -33,16 +32,13 @@ class PetsController < ApplicationController
 
   def get_pet_image
     @pet = Pet.find(params[:id])
-    # response.set_header('Content-Type', 'image/jpeg')
-    # response.set_header('Content-Type', @pet[:file_content_type])
-    # return @pet.file
-    send_data @pet.file, type: @pet.file_content_type, disposition: 'inline', filename: 'test.jpeg'
+    send_data @pet.image, type: @pet.image_content_type, disposition: 'inline', filename: 'test.jpeg'
   end
 
   private
 
     def pet_params
-      params.permit(:name, :owner, :description, :tag, :file, :file_content_type)
+      params.permit(:name, :owner, :description, :tag, :image, :image_content_type)
     end
 
     def set_pet

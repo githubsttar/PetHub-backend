@@ -5,8 +5,8 @@ class CreatePets < ActiveRecord::Migration[5.2]
       t.string :owner
       t.text :description
       t.string :tag, null: false
-      t.binary :file, null:true
-      t.string :file_content_type, null:true
+      t.string :image, null:true
+      t.string :image_content_type, null:true
       t.timestamps
     end
   end

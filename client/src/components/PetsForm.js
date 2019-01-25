@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Col, Row, Button, Form, FormGroup, Label, Input, Container, FormText } from 'reactstrap';
-import Navbar from './Navbar'
+import FileBase64 from 'react-file-base64';
 
 class PetsForm extends Component {
   constructor() {
@@ -46,8 +46,13 @@ class PetsForm extends Component {
             <Input type="textarea" name="description" id="description" placeholder="Describe the pet"/>
           </FormGroup>
           <FormGroup>
-            <Label for="exampleFile">Picture</Label>
-            <Input type="file" name="file" id="exampleFile" />
+            <FileBase64
+              multiple={ false }
+              onDone={ this.handleSubmit } />
+            {/*<Label for="exampleFile">Picture</Label>*/}
+            {/*<FileBase64 multiple={ false }>*/}
+              {/*<Input type="file" name="image" id="image" />*/}
+            {/*</FileBase64>*/}
             <FormText color="muted">
             </FormText>
           </FormGroup>

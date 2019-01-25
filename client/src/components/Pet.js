@@ -33,7 +33,7 @@ class Pet extends Component {
         <Header as='h1' textalign='center'>
           <Header.Content>{pet.name}</Header.Content>
         </Header>
-        <Image centered size='large' src={'http://localhost:3001/pets/image/' + pet.id} />
+        <Image centered size='large' src={`data:image/jpeg;base64,${pet.image}`} />
         <h2>{pet.description} </h2>
         <h3>Owned by {pet.owner} </h3>
       </div>

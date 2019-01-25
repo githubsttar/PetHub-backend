@@ -24,6 +24,8 @@ class App extends Component {
               <Route exact path="/signup" />
               <Route exact path="/pets" component={PetsListings}/>
               <Route exact path="/pets/create" component={PetsForm}/>
+              <Route exact path="/pets/lostpets" />
+              <Route exact path="/pets/foundpets" />
               <Route exact path="/pets/:id" component={Pet}/>
             </Switch>
           </Container>

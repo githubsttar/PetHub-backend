@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { Col, Row, Button, Form, FormGroup, Label, Input, Container, FormText } from 'reactstrap';
 import GeoAutoComplete from './GeoAutoComplete';
 import ActiveStorageProvider from 'react-activestorage-provider';
@@ -100,7 +100,12 @@ class PetsForm extends Component {
                       </p>
                     )
                   case 'finished':
-                    return <p key={upload.id}>Finished uploading {upload.file.name}</p>
+                    return (<Fragment>
+                        {this.response(upload)}
+                        <p key={upload.id}>Finished uploading {upload.file.name}</p>
+                        </Fragment>)
+                  default:
+                    return null;
                 }
               })}
             </div>

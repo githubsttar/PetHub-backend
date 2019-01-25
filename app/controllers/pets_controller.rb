@@ -8,6 +8,10 @@ class PetsController < ApplicationController
 
   def create
     @pet = Pet.create!(pet_params)
+      if pet_params[:photo]
+        blob = ActiveStorage::Blob.find_by(filename: pet_params[:photo])
+        @pet.photo.attach(blob)
+      end
     json_response(@pet, :created)
   end
 

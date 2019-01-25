@@ -41,6 +41,8 @@ ActiveRecord::Schema.define(version: 2019_01_24_135450) do
     t.string "owner"
     t.text "description"
     t.string "tag", null: false
+    t.string "image"
+    t.string "image_content_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import { Container, Header, Segment, Button, Icon, Dimmer, Loader, Divider, Card } from 'semantic-ui-react';
-import Navbar from './Navbar'
 
 class PetsListings extends Component {
   constructor() {

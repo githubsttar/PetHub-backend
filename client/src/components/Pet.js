@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { Container, Header, Image } from 'semantic-ui-react';
+import { Header, Image } from 'semantic-ui-react';
 import Layout from './Layout'
 
 class Pet extends Component {

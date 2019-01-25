@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Col, Row, Button, Form, FormGroup, Label, Input, Container, FormText } from 'reactstrap';
 import GeoAutoComplete from './GeoAutoComplete'
 
-
 class PetsForm extends Component {
   constructor() {
     super();

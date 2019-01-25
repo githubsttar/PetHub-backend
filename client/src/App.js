@@ -11,7 +11,7 @@ import createBrowserHistory from "history/createBrowserHistory";
 import './App.css';
 import PetsForm from "./components/PetsForm";
 import { GoogleApiWrapper } from 'google-maps-react';
-import ConversationsList from './components/ConversationsList';
+import ConversationsList from './components/chat/ConversationsList';
 
 class App extends Component {
   render() {

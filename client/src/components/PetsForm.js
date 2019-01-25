@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Col, Row, Button, Form, FormGroup, Label, Input, Container, FormText } from 'reactstrap';
-import Navbar from './Navbar'
+import GeoAutoComplete from './GeoAutoComplete'
+
 
 class PetsForm extends Component {
   constructor() {
@@ -59,6 +60,12 @@ class PetsForm extends Component {
               <option>Reunited</option>
             </Input>
           </FormGroup>
+
+          <FormGroup>
+            <Label for="location">Last Seen Location</Label>
+            <GeoAutoComplete />
+          </FormGroup>
+
           <Button color="dark" style={{marginTop: '2rem'}} block>Report</Button>
         </Form>
       </Container>

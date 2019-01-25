@@ -10,6 +10,7 @@ import 'semantic-ui-css/semantic.min.css';
 import createBrowserHistory from "history/createBrowserHistory";
 import './App.css';
 import PetsForm from "./components/PetsForm";
+import { GoogleApiWrapper } from 'google-maps-react';
 
 class App extends Component {
   render() {
@@ -31,4 +32,7 @@ class App extends Component {
   }
 }
 
-export default App;
+export default GoogleApiWrapper({
+  apiKey: process.env.REACT_APP_API_KEY,
+  libraries: ['places']
+})(App);

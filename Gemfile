@@ -43,6 +43,7 @@ group :development, :test do
   gem 'simplecov-console', require: false
   gem 'simplecov-rcov'
   gem 'coveralls'
+  gem 'jwt'
 end
 
 group :development do

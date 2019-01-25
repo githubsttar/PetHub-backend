@@ -20,7 +20,7 @@ class Pet extends Component {
   }
 
   getPet() {
-    this.fetch(`/pets/${this.props.match.params.id}`)
+    this.fetch(`http://localhost:3001/pets/${this.props.match.params.id}`)
     .then(pet => {
       this.setState({pet: pet});
     })

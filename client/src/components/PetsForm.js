@@ -17,7 +17,7 @@ class PetsForm extends Component {
     event.preventDefault();
     const data = new FormData(event.target);
 
-    fetch('/pets', {
+    fetch('http://localhost:3001/pets', {
       method: 'POST',
       body: data,
     });
@@ -48,8 +48,8 @@ class PetsForm extends Component {
             <Input type="textarea" name="description" id="description" placeholder="Describe the pet"/>
           </FormGroup>
           <FormGroup>
-            <Label for="pet_picture">Picture</Label>
-            <Input type="file" name="pet_picture" id="pet_picture" />
+            <Label for="image">Picture</Label>
+            <Input type="file" name="image" id="image" />
             <FormText color="muted">
             </FormText>
           </FormGroup>

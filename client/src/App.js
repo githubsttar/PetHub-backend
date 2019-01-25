@@ -11,6 +11,8 @@ import createBrowserHistory from "history/createBrowserHistory";
 import './App.css';
 import PetsForm from "./components/PetsForm";
 import { GoogleApiWrapper } from 'google-maps-react';
+import LostPets from "./components/LostPets";
+import FoundPets from "./components/FoundPets";
 
 class App extends Component {
   render() {
@@ -24,8 +26,8 @@ class App extends Component {
               <Route exact path="/signup" />
               <Route exact path="/pets" component={PetsListings}/>
               <Route exact path="/pets/create" component={PetsForm}/>
-              <Route exact path="/pets/lostpets" />
-              <Route exact path="/pets/foundpets" />
+              <Route exact path="/pets/lostpets" component={LostPets}/>
+              <Route exact path="/pets/foundpets" component={FoundPets}/>
               <Route exact path="/pets/:id" component={Pet}/>
             </Switch>
           </Container>

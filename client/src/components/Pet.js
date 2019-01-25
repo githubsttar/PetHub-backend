@@ -20,7 +20,7 @@ class Pet extends Component {
   }
 
   getPet() {
-    this.fetch(`/pets/${this.props.match.params.id}`)
+    this.fetch(`http://localhost:3001/pets/${this.props.match.params.id}`)
     .then(pet => {
       this.setState({pet: pet});
     })
@@ -33,7 +33,7 @@ class Pet extends Component {
         <Header as='h1' textalign='center'>
           <Header.Content>{pet.name}</Header.Content>
         </Header>
-        <Image centered size='large' src="http://lorempixel.com/400/400/animals" />
+        <Image centered size='large' src={'http://localhost:3001/pets/image/' + pet.id} />
         <h2>{pet.description} </h2>
         <h3>Owned by {pet.owner} </h3>
       </div>

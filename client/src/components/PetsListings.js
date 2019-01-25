@@ -27,7 +27,7 @@ class PetsListings extends Component {
   }
 
   getPets() {
-    this.fetch('/pets')
+    this.fetch('http://localhost:3001/pets')
       .then(pets => {
         if (pets.length) {
           this.setState({pets: pets});
@@ -39,7 +39,7 @@ class PetsListings extends Component {
   }
 
   getPet(id) {
-    this.fetch(`/pets/${id}`)
+    this.fetch(`http://localhost:3001/pets/${id}`)
       .then(pet => this.setState({pet: pet}))
   }
 

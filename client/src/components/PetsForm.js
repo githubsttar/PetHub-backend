@@ -12,7 +12,7 @@ class PetsForm extends Component {
     event.preventDefault();
     const data = new FormData(event.target);
 
-    fetch('/pets', {
+    fetch('http://localhost:3001/pets', {
       method: 'POST',
       body: data,
     }).then(

@@ -20,6 +20,8 @@ ActiveRecord::Schema.define(version: 2019_01_21_151020) do
     t.string "owner"
     t.text "description"
     t.string "tag", null: false
+    t.binary "file"
+    t.string "file_content_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

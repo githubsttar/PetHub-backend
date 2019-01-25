@@ -3,7 +3,6 @@ import { Container, Header, Image } from 'semantic-ui-react';
 import Layout from './Layout';
 import Iframe from 'react-iframe';
 
-
 class Pet extends Component {
   constructor() {
     super();

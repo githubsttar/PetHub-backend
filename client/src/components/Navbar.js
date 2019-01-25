@@ -5,23 +5,27 @@ import {
   Icon,
   Menu
 } from "semantic-ui-react";
+import Filter from "./FoundPets"; 
+
 
 class NavBar extends Component{
  constructor(){
     super();
+    this.state={ activeItem: "home" }
+    this.routeChange = this.routeChange.bind(this);
+  }
 
-    this.state={
-        activeItem: "home"
-    }
-}
-handleItemClick = (e, { name }) => this.setState({ activeItem: name });
+  handleClick(condition) {
+    this.setState({
+      squares: squares,
+      xIsNext: !this.state.xIsNext,
+    });
+  }
 
-
-render() {
-const { activeItem } = this.state;
-
-return (
-    <Container className='menu'>
+  render() {
+    const { activeItem } = this.state;
+    return (
+      <Container className='menu'>
         <Menu.Item className='menu__link'>
           PetHub
         </Menu.Item>
@@ -30,8 +34,7 @@ return (
           as={NavLink}
           to="/"
           name='home'
-          active={activeItem === 'home'}
-          onClick={this.handleItemClick}>
+          active={activeItem === 'home'}>
           <Icon name="home"/>Home
         </Menu.Item>
         <Menu.Item
@@ -39,26 +42,32 @@ return (
           as={NavLink}
           to="/pets"
           name='allPets'
-          active={activeItem === 'allPets'}
-          onClick={this.handleItemClick}>
-          <Icon name="paw"/>View lost and found pets
+          active={activeItem === 'allPets'}>
+          <Icon name="paw"/>View All Pets
+        </Menu.Item>
+        <Menu.Item
+          className='menu__link'
+          as={NavLink}
+          to="/pets/filter"
+          name='allPets'
+          active={activeItem === 'filtered'}
+          onClick={this.handleClick}>
+          <Icon name="paw"/>View Found Pets
         </Menu.Item>
         <Menu.Item
           className='menu__link'
           as={NavLink}
           to="/pets/create"
           name='newPets'
-          active={activeItem === 'newPets'}
-          onClick={this.handleItemClick}>
-          <Icon name="home"/>Report your missing pet
+          active={activeItem === 'newPets'}>
+          <Icon name="home"/>Post a Pet
         </Menu.Item>
         <Menu.Item
           className='menu__link'
           as={NavLink}
           to="/users/new"
           name='register'
-          active={activeItem === 'register'}
-          onClick={this.handleItemClick}>
+          active={activeItem === 'register'}>
           <Icon name="pencil"/>Register
         </Menu.Item>
         <Menu.Item
@@ -66,11 +75,10 @@ return (
           as={NavLink}
           to="/login"
           name='login'
-          active={activeItem === 'login'}
-          onClick={this.handleItemClick}>
+          active={activeItem === 'login'}>
           <Icon name="sign-in"/>Login
         </Menu.Item>
-    </Container>
+      </Container>
     )
   }
 }

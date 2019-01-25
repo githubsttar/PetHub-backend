@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import { Container, Dimmer, Loader, Divider, Card } from 'semantic-ui-react';
 
-class FoundPets extends Component {
+class Filter extends Component {
 
   constructor() {
     super();
@@ -24,14 +24,13 @@ class FoundPets extends Component {
             result.push(data[i])
           }
         }
-
         return result
       })
       .catch(error => console.log(error))
   }
 
+
   getPets() {
-    console.log(true);
     this.fetch('/pets')
       .then(pets => {
         if (pets.length) {
@@ -48,9 +47,7 @@ class FoundPets extends Component {
       .then(pet => this.setState({pet: pet}))
   }
 
-
   render () {
-    console.log("something");
     let {pets, pet} = this.state;
      return pets
        ? <Container text>
@@ -58,17 +55,12 @@ class FoundPets extends Component {
            {pets && pets.length
              ? <Card.Group itemsPerRow={2}>
                {Object.keys(pets).map((key) => {
-
-                var thing = pets[key].tag
-                
                   return <Card
-                  image="http://lorempixel.com/400/400/animals"
+                  fluid key={key}
                   header={pets[key].name}
                   description={pets[key].description}
                   meta={pets[key].tag}
                   />
-                
-
             })}
              </Card.Group>
              : <Container textAlign='center'>No Pets found.</Container>
@@ -83,4 +75,4 @@ class FoundPets extends Component {
    }
 }
 
-export default FoundPets;
+export default Filter;

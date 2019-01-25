@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import Layout from './Layout'
-import { Container, Header, Segment, Button, Icon, Dimmer, Loader, Divider, Card } from 'semantic-ui-react';
+import { Container, Dimmer, Loader, Divider, Card } from 'semantic-ui-react';
 
 class LostPets extends Component {
 
@@ -52,7 +52,7 @@ class LostPets extends Component {
                {Object.keys(pets).map((key) => {
 
                 var thing = pets[key].tag
-                if (thing == "Lost") {
+                if (thing === "Lost") {
                   return <Card
                   image="http://lorempixel.com/400/400/animals"
                   header={pets[key].name}

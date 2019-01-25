@@ -7,7 +7,7 @@ class PetsController < ApplicationController
   end
 
   def create
-    @pet = Pet.create!(pet_params)
+    @pet = current_user.Pet.create!(pet_params)
     json_response(@pet, :created)
   end
 

@@ -1,11 +1,14 @@
 require 'rails_helper'
 
 RSpec.describe 'Pets API', type: :request do
+  let(:user) { create(:user) }
   let!(:pets) { create_list(:pet, 10) }
   let(:pets_id) { pets.first.id }
+  # authorize request
+  let(:headers) { valid_headers }
 
   describe 'GET /pets' do
-    before { get '/pets' }
+    before { get '/pets', params: {}, headers: headers }
 
     it 'returns pets' do
       expect(json).not_to be_empty
@@ -18,7 +21,7 @@ RSpec.describe 'Pets API', type: :request do
   end
 
   describe 'GET /pets/:id' do
-    before { get "/pets/#{pets_id}" }
+    before { get "/pets/#{pets_id}", params: {}, headers: headers }
 
     context 'when the record exists' do
       it 'returns the pet' do
@@ -45,10 +48,14 @@ RSpec.describe 'Pets API', type: :request do
   end
 
   describe 'POST /pets' do
-    let(:valid_attributes) { { name: 'spike', owner: 'Jamie', description: 'An amazing doggie', tag: 'lost' } }
+    let(:valid_attributes) do
+      # send json payload
+      { name: 'spike', owner: 'Jamie', description: 'An amazing doggie', tag: 'lost', created_by: user.id.to_s }.to_json
+    end
+    # let(:valid_attributes) { { name: 'spike', owner: 'Jamie', description: 'An amazing doggie', tag: 'lost' } }
 
     context 'when the request is valid' do
-      before { post '/pets', params: valid_attributes }
+      before { post '/pets', params: valid_attributes, headers: headers }
 
       it 'creates a pet' do
         expect(json['name']).to eq('spike')
@@ -63,7 +70,8 @@ RSpec.describe 'Pets API', type: :request do
     end
 
     context 'when the request is invalid' do
-      before { post '/pets', params: { name: 'spike' } }
+      let(:invalid_attributes) { { name: nil }.to_json }
+      before { post '/pets', params: { params: invalid_attributes, headers: headers} }
 
       it 'returns status code 422' do
         expect(response).to have_http_status(422)
@@ -90,10 +98,10 @@ RSpec.describe 'Pets API', type: :request do
   end
 
   describe 'PUT /pets/:id' do
-    let(:valid_attributes) { { name: 'diamond' } }
+    let(:valid_attributes) { { name: 'diamond' }.to_json  }
 
     context 'when the record exists' do
-      before { put "/pets/#{pets_id}", params: valid_attributes }
+      before { put "/pets/#{pets_id}", params: valid_attributes, headers: headers }
 
       it 'updates the record' do
         expect(response.body).to be_empty
@@ -106,7 +114,7 @@ RSpec.describe 'Pets API', type: :request do
   end
 
   describe 'DELETE /pets/:id' do
-    before { delete "/pets/#{pets_id}" }
+    before { delete "/pets/#{pets_id}", params: {}, headers: headers }
 
     it 'returns status code 304' do
       expect(response).to have_http_status(204)

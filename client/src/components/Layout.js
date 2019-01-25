@@ -1,6 +1,5 @@
-import React, {Component} from 'react';
+import React from 'react';
 import Navbar from './Navbar';
-import { Container } from 'semantic-ui-react';
 import Helmet from 'react-helmet';
 
 

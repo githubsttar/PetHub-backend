@@ -12,14 +12,10 @@ class NavBar extends Component{
  constructor(){
     super();
     this.state={ activeItem: "home" }
-    this.routeChange = this.routeChange.bind(this);
   }
 
   handleClick(condition) {
-    this.setState({
-      squares: squares,
-      xIsNext: !this.state.xIsNext,
-    });
+  
   }
 
   render() {

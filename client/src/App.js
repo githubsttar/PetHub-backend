@@ -11,8 +11,12 @@ import createBrowserHistory from "history/createBrowserHistory";
 import './App.css';
 import PetsForm from "./components/PetsForm";
 import { GoogleApiWrapper } from 'google-maps-react';
+
 import LostPets from "./components/LostPets";
 import Filter from "./components/FoundPets";
+
+import ConversationsList from './components/chat/ConversationsList';
+
 
 class App extends Component {
   render() {
@@ -29,6 +33,7 @@ class App extends Component {
               <Route exact path="/pets/lostpets" component={LostPets}/>
               <Route exact path="/pets/filter" component={Filter}/>
               <Route exact path="/pets/:id" component={Pet}/>
+              <Route exact path="/conversations" component={ConversationsList}/>
             </Switch>
           </Container>
         </Layout>

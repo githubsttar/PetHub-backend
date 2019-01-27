@@ -20,7 +20,7 @@ class Filter extends Component {
       .then(data => {
         var result = [];
         for (var i=0; i < data.length; i++){
-          if (data[i]['tag'] === 'Found'){
+          if (data[i]['tag'] === this.props.tag){
             result.push(data[i])
           }
         }

@@ -12,8 +12,7 @@ import './App.css';
 import PetsForm from "./components/PetsForm";
 import { GoogleApiWrapper } from 'google-maps-react';
 
-import LostPets from "./components/LostPets";
-import Filter from "./components/FoundPets";
+import Filter from "./components/Filter";
 
 import ConversationsList from './components/chat/ConversationsList';
 
@@ -30,8 +29,8 @@ class App extends Component {
               <Route exact path="/signup" />
               <Route exact path="/pets" component={PetsListings}/>
               <Route exact path="/pets/create" component={PetsForm}/>
-              <Route exact path="/pets/lostpets" component={LostPets}/>
-              <Route exact path="/pets/filter" component={Filter}/>
+              <Route exact path="/pets/found" component={() => <Filter tag="Found"/>}/>
+              <Route exact path="/pets/lost" component={() => <Filter tag="Lost"/>}/>
               <Route exact path="/pets/:id" component={Pet}/>
               <Route exact path="/conversations" component={ConversationsList}/>
             </Switch>

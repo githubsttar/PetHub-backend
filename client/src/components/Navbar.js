@@ -5,7 +5,6 @@ import {
   Icon,
   Menu
 } from "semantic-ui-react";
-import Filter from "./FoundPets"; 
 
 
 class NavBar extends Component{
@@ -44,11 +43,20 @@ class NavBar extends Component{
         <Menu.Item
           className='menu__link'
           as={NavLink}
-          to="/pets/filter"
-          name='allPets'
+          to="/pets/found"
+          name='tagfound'
           active={activeItem === 'filtered'}
           onClick={this.handleClick}>
           <Icon name="paw"/>View Found Pets
+        </Menu.Item>
+        <Menu.Item
+          className='menu__link'
+          as={NavLink}
+          to="/pets/lost"
+          name='taglost'
+          active={activeItem === 'filtered'}
+          onClick={this.handleClick}>
+          <Icon name="paw"/>View Lost Pets
         </Menu.Item>
         <Menu.Item
           className='menu__link'

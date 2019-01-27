@@ -17,21 +17,16 @@ class Filter extends Component {
   fetch(endpoint) {
     return window.fetch(endpoint)
       .then(response => response.json())
-      .then(data => {
-        var result = [];
-        for (var i=0; i < data.length; i++){
-          if (data[i]['tag'] === this.props.tag){
-            result.push(data[i])
-          }
-        }
-        return result
-      })
       .catch(error => console.log(error))
   }
 
-
   getPets() {
-    this.fetch('/pets')
+    // this.fetch('/pets')
+    var fetchUrl = '/pets'
+    if (this.props.tag !== null) {
+      fetchUrl += '?tag=' + this.props.tag;
+    }
+    this.fetch(fetchUrl)
       .then(pets => {
         if (pets.length) {
           this.setState({pets: pets});

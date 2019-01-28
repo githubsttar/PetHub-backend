@@ -10,7 +10,13 @@ class PetsController < ApplicationController
   end
 
   def create
-    @pet = Pet.create!(pet_params)
+    # @pet = Pet.create!(pet_params)
+    @pet = Pet.new(pet_params)
+    if @pet.save
+      serialized_data = ActiveModelSerializers::Adapter::Json.new(
+        PetSerializer.new(@pet)
+      ).serializable_hash
+    end
     json_response(@pet, :created)
   end
 
@@ -34,10 +40,11 @@ class PetsController < ApplicationController
   private
 
     def pet_params
-      params.permit(:name, :owner, :description, :tag, :location)
+      params.permit(:name, :owner, :description, :tag, :location, :picture)
     end
 
     def set_pet
       @pet = Pet.find(params[:id])
     end
+
 end

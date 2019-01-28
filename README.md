@@ -21,11 +21,11 @@ Frontend repo (React.js): http://github.com/tomasdoh/PetHub-frontend
 
 * Creating, showing, updating and deleting listings for lost and found pets
 * Communicating with the PetHub API via JSON, persisting the data in a PostgreSQL database
-* User authentication using JWT tokens *(TBC)*
+* User authentication using JWT tokens *In development*
 * Images can be uploaded for each listing, stored using Active Storage and Amazon S3.
 * Integration with Google Maps Places, Geocoding and Javascript APIs for form autofill and embedded maps 
 * Chat room feature using Websockets and Action Cable
-* Email/text message alerts *(TBC)*
+* Email/text message alerts *In development*
 
 ## User stories 🐈
 

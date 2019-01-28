@@ -1,15 +1,20 @@
 require 'rails_helper'
 
 RSpec.describe 'Pets API', type: :request do
-  let!(:pets) { create_list(:pet, 10) }
-  let(:pets_id) { pets.first.id }
+
+  before(:each) do
+    @user = User.create!(:name => 'el',:email => 'el@el.com', :password_digest => '1234567')
+    @pets = Pet.create!(:user => @user, :name => 'cookie', :description => 'dog', :tag => 'Lost', :owner => 'me')
+  end
+
+  let(:pets_id) { @pets.id }
 
   describe 'GET /pets' do
     before { get '/pets' }
 
     it 'returns pets' do
       expect(json).not_to be_empty
-      expect(json.size).to eq(10)
+      expect(json.size).to eq(1)
     end
 
     it 'returns status code 200' do
@@ -22,6 +27,7 @@ RSpec.describe 'Pets API', type: :request do
 
     context 'when the record exists' do
       it 'returns the pet' do
+        byebug
         expect(json).not_to be_empty
         expect(json['id']).to eq(pets_id)
       end

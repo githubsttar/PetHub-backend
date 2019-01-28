@@ -3,6 +3,9 @@ class PetsController < ApplicationController
 
   def index
     @pets = Pet.all
+    if params[:tag]
+      @pets = @pets.where(tag: params[:tag])
+    end
     json_response(@pets)
   end
 

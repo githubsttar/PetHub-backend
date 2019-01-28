@@ -8,5 +8,5 @@
 # AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
 
 50.times do
-  pet = Pet.create(name: Faker::Dog.name, owner: Faker::Name.first_name, description: Faker::GameOfThrones.quote, tag: Faker::Lorem.words )
+  pet = Pet.create(name: Faker::Dog.name, owner: Faker::Name.first_name, description: Faker::GameOfThrones.quote, tag: "Lost", location: Faker::Address.city )
 end

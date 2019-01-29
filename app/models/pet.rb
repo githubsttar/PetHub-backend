@@ -3,4 +3,6 @@ class Pet < ApplicationRecord
 
   # active_storage pet pic
   has_one_attached :picture
+
+  belongs_to :user
 end

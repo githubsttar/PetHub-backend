@@ -17,7 +17,7 @@ class UsersController < ApplicationController
     if query_result.any?
       user_details = { id: query_result[0].id, name: query_result[0].name, email: query_result[0].email }
       hmac_secret = ENV["JWT_SECRET"]
-      token = JWT.encode(user_details, hmac_secret, 'HS256')
+      token = JWT.encode(user_details, "#{hmac_secret}", 'HS256')
       cookies.signed[:jwt] = { value:  token, httponly: true }
       render json: user_details
     else

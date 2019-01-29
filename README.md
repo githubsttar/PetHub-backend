@@ -4,9 +4,9 @@
 
 PetHub is an application that helps reunite lost pets with their owners, built using a Rails API and a React.js frontend.
 
-Live site: http://pet-hub.herokuapp.com
+Live site: https://pet-hub.herokuapp.com
 
-API: http://pet-hub-api.herokuapp.com
+API: https://pet-hub-api.herokuapp.com
 
 Frontend repo (React.js): http://github.com/tomasdoh/PetHub-frontend
 

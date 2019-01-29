@@ -6,5 +6,6 @@ Rails.application.routes.draw do
     resources :messages, only: [:create]
     mount ActionCable.server => '/cable'
 
-    resources :users
+    post   'users/login', to: 'users#login'
+    post   'users/create', to:'users#create'
 end

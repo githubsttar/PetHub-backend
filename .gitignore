@@ -27,3 +27,4 @@
 .idea
 note.md
 coverage/*
+.env

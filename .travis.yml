@@ -5,7 +5,7 @@ before_script:
 language: ruby
 cache: bundler
 script:
-- bundle exec rails db:create db:migrate RAILS_ENV=test
+- bundle exec rake db:test:prepare
 - bundle exec rspec
 deploy:
   provider: heroku

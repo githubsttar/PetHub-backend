@@ -63,33 +63,6 @@ RSpec.describe 'Pets API', type: :request do
         expect(response).to have_http_status(201)
       end
     end
-
-  #   Following test areremoved after adding PetSerializer
-    # context 'when the request is invalid' do
-    #   before { post '/pets', params: { name: 'spike' } }
-
-    #   it 'returns status code 404' do
-    #     expect(response).to have_http_status(404)
-    #   end
-
-    #   it 'returns a validation failure message' do
-    #     expect(response.body)
-    #     .to match(/Validation failed: Owner can't be blank, Description can't be blank/)
-    #   end
-    #   end
-
-    # context 'when the tag is not provided' do
-    #   before { post '/pets', params: { name: 'spike', owner: 'john', description: 'cutie' } }
-
-    #   it 'returns status code 422' do
-    #     expect(response).to have_http_status(422)
-    #   end
-
-    #   it 'returns a validation failure message' do
-    #     expect(response.body)
-    #     .to match(/Validation failed: Tag can't be blank/)
-    #   end 
-    # end
   end
 
   describe 'PUT /pets/:id' do
@@ -99,11 +72,11 @@ RSpec.describe 'Pets API', type: :request do
       before { put "/pets/#{pets_id}", params: valid_attributes }
 
       it 'updates the record' do
-        expect(response.body).to be_empty
+        expect(json['name']).to eq('diamond')
       end
 
-      it 'returns the status code 204' do
-        expect(response).to have_http_status(204)
+      it 'returns the status code 200' do
+        expect(response).to have_http_status(200)
       end
     end
   end

@@ -27,14 +27,20 @@ class PetsController < ApplicationController
 
   # PUT /pets/:id
   def update
-    @pet.update(pet_params)
-    head :no_content
+    if @pet.update(pet_params)
+      json_response(@pet)
+    else
+      render json: @pet.errors, status: :unprocessable_entity
+    end
   end
 
   # DELETE /pets/:id
   def destroy
-    @pet.destroy
-    head :no_content
+    if @pet.destroy
+      head :no_content, status: :ok
+    else
+      render json: @pet.errors, status: :unprocessable_entity
+    end
   end
 
   private

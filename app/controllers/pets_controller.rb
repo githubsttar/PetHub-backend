@@ -46,7 +46,7 @@ class PetsController < ApplicationController
   private
 
     def pet_params
-      params.permit(:name, :owner, :description, :tag, :location, :user_id, :fileBase64, :fileContentType)
+      params.permit(:name, :description, :tag, :location, :user_id, :fileBase64, :fileContentType)
     end
 
     def set_pet

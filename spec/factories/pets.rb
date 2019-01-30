@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :pet do
     name { Faker::Dog.name }
-    owner { Faker::Name.first_name }
+    location { Faker::Address.city }
     description { Faker::GameOfThrones.quote }
     tag { Faker::Lorem.words }
   end

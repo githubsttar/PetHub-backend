@@ -1,3 +1,4 @@
+require 'users_controller'
 class PetsController < ApplicationController
   before_action :set_pet, only: [:show, :update, :destroy]
 
@@ -10,7 +11,6 @@ class PetsController < ApplicationController
   end
 
   def create
-    # @pet = Pet.create!(pet_params)
     @pet = Pet.new(pet_params)
     if @pet.save
       serialized_data = ActiveModelSerializers::Adapter::Json.new(
@@ -40,7 +40,7 @@ class PetsController < ApplicationController
   private
 
     def pet_params
-      params.permit(:name, :owner, :description, :tag, :location, :picture)
+      params.permit(:name, :owner, :description, :tag, :location, :fileBase64, :fileContentType)
     end
 
     def set_pet

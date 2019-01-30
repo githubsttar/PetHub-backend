@@ -1,17 +1,22 @@
 class UsersController < ApplicationController
   skip_before_action :verify_authenticity_token
+  before_action :find_user, only: [:show, :update, :destroy]
+
   def index
     @users = User.all
     json_response(@users)
   end
+
   def create
     @user = User.create!(user_params)
     json_response(@user, :created)
   end
+
   # GET /users/:id
   def show
     json_response(@user)
   end
+
   def login
     query_result = User.find_by_sql ["SELECT * FROM users WHERE email = '#{params[:email]}'"]
     if query_result.any?
@@ -26,24 +31,29 @@ class UsersController < ApplicationController
       }, status: 404
     end
   end
+
   def destroy
     cookies.delete(:jwt)
   end
-  private
-    def login_params
-      params.permit(
-        :email,
-        :password_digest,
-        )
-    end
-    def user_params
-      params.permit(
-        :name,
-        :email,
-        :password_digest,
-        )
-    end
-    def find_user
-      @user = User.find(params[:id])
-    end
+
+private
+
+  def login_params
+    params.permit(
+      :email,
+      :password_digest,
+      )
+  end
+
+  def user_params
+    params.permit(
+      :name,
+      :email,
+      :password_digest,
+      )
+  end
+
+  def find_user
+    @user = User.find(params[:id])
+  end
 end

@@ -36,7 +36,11 @@ class PetsController < ApplicationController
 
   # DELETE /pets/:id
   def destroy
-    @pet.destroy
+    if @pet.destroy
+      head :no_content, status: :ok
+    else
+      render json: @pet.errors, status: :unprocessable_entity
+    end
   end
 
   private

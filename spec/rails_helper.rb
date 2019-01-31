@@ -12,7 +12,7 @@ abort("The Rails environment is running in production mode!") if Rails.env.produ
 require 'rspec/rails'
 require 'simplecov'
 require 'simplecov-console'
-require 'action_cable/testing/rspec'
+
 SimpleCov.formatter = SimpleCov::Formatter::HTMLFormatter
 # Add additional requires below this line. Rails is not loaded until this point!
 SimpleCov.start 'rails'
@@ -22,6 +22,8 @@ SimpleCov.start do
   add_filter "app/channels"
   add_filter "app/helpers"
 end
+
+require 'action_cable/testing/rspec'
 # configure shoulda matchers to use rspec as the test framework and full matcher libraries for rails
 
 Shoulda::Matchers.configure do |config|

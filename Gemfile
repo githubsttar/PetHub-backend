@@ -35,13 +35,14 @@ gem 'rack-cors', :require => 'rack/cors'
 gem 'faker'
 
 gem "aws-sdk-s3", require: false
-gem 'dotenv-rails'
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rspec-rails'
   gem 'rubocop-rails_config'
+  gem 'rubocop-rspec'
   gem 'simplecov', require: false
   gem 'simplecov-console', require: false
   gem 'simplecov-rcov'
@@ -58,7 +59,6 @@ end
 group :test do
   gem 'factory_bot_rails'
   gem 'shoulda-matchers'
-  gem 'faker'
   gem 'database_cleaner'
   gem 'action-cable-testing'
 end

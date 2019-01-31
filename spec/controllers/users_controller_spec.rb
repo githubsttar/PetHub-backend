@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe 'Users API', type: :request do
+
   let!(:users) { create_list(:user, 10) }
   let(:user_id) { users.first.id }
 
@@ -16,10 +17,13 @@ RSpec.describe 'Users API', type: :request do
       expect(response).to have_http_status(200)
     end
   end
+
   describe 'POST /users' do
+
     let(:valid_attributes) { { name: 'louis', email: 'louis@gmail.com', password_digest: '1234566' } }
 
     context 'when the request is valid' do
+
       before { post '/users', params: valid_attributes }
 
       it 'creates a user' do

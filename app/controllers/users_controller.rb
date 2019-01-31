@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   skip_before_action :verify_authenticity_token
-  before_action :find_user, only: [:show, :update, :destroy]
+  before_action :find_user, only: [:show, :destroy]
 
   def index
     @users = User.all

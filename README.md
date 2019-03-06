@@ -89,4 +89,5 @@ PetHub has been deployed using [Heroku](http://heroku.com)
 
 We welcome contributions to the project. Before making a change, please first discuss the contribution you wish to make via issue, email, or any other method with the project team.
 
-## Licence 🐇
+## Copyright 🐇
+Feel free to clone the repo and use

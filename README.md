@@ -2,7 +2,7 @@
 
 ### [Team](https://github.com/githubsttar/PetHub-backend#team) |  [User stories](https://github.com/githubsttar/PetHub-backend#user-stories) |  [Getting started](https://github.com/githubsttar/PetHub-backend#getting-started) |  [How to use](https://github.com/githubsttar/PetHub-backend#how-to-use-pethub) | [Our approach](https://github.com/githubsttar/PetHub-backend#our-approach) |   [Testing](https://github.com/githubsttar/PetHub-backend#testing) |   [Deployment](https://github.com/githubsttar/PetHub-backend#deployment) |  [Contributing](https://github.com/githubsttar/PetHub-backend#contributing)
 
-PetHub is an application that helps reunite lost pets with their owners, built using a Rails API and a React.js frontend.
+PetHub is an application that helps reunite lost pets with their owners, built using a Rails API backend and a React.js frontend.
 
 Live site: https://pet-hub.herokuapp.com
 

@@ -17,7 +17,7 @@ Frontend repo (React.js): http://github.com/tomasdoh/PetHub-frontend
 * [Luisa Theodoro Paoliello](https://github.com/luisatheodoro)
 * [Tomas Doherty](https://github.com/tomasdoh)
 
-## Features
+## Feature
 
 * Creating, showing, updating and deleting listings for lost and found pets
 * Communicating with the PetHub API via JSON, persisting the data in a PostgreSQL database

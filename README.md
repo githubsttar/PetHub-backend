@@ -61,7 +61,7 @@ In order to get the app to work locally, you may need to change the configuratio
 
 We used [RSpec](http://rspec.info/) to test the API, [Jest](https://jestjs.io/) to test the React.js components, and [Cypress](https://www.cypress.io/) to run integration tests. We have also used [Travis CI](https://travis-ci.org/) as a continuous integration service throughout the development process.
 
-To run the API tests (RSpec):
+To run the API tests (RSpec)::
 
 ```
 cd PetHub-backend

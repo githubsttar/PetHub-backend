@@ -55,7 +55,7 @@ In order to get the app to work locally, you may need to change the configuratio
 
 ## Our approach 🦜
 
-*2 day sprints and tracking our learning via a wiki*
+*Checkout our Wiki to see our approach to creating the PetHub Application.
 
 ## Testing 🐴
 

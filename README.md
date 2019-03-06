@@ -83,7 +83,7 @@ node_modules/.bin/cypress open
 
 ## Deployment 🐩
 
-PetHub has been deployed using [Heroku](http://heroku.com).
+PetHub has been deployed using [Heroku](http://heroku.com)
 
 ## Contributing 🐍
 

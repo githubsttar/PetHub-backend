@@ -27,10 +27,6 @@ Frontend repo (React.js): http://github.com/tomasdoh/PetHub-frontend
 * Chat room feature using Websockets and Action Cable
 * Email/text message alerts *In development*
 
-## User stories 🐈
-
-Read all of the user stories [here](https://github.com/githubsttar/PetHub-backend/user-stories.md)
-
 ## Getting started 🐠
 
 To run the application and test suites locally, clone this repo for the API **and** clone the [front-end repo](https://github.com/tomasdoh/PetHub-frontend) for the application's client.

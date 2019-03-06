@@ -45,13 +45,9 @@ npm start
 ```
 In order to get the app to work locally, you may need to change the configuration of the URLs used for API requests. Head to `PetHub-frontend/src/constants/index.js` to check that the local URLs are being used for fetch requests.
 
-## How to use PetHub 🦄
+## Our approach 🦜🦄
 
-*User journey and screenshots to be included here*
-
-## Our approach 🦜
-
-*Checkout our Wiki to see our approach to creating the PetHub Application.
+Checkout our Wiki to see our approach to creating the PetHub Application.
 
 ## Testing 🐴
 
